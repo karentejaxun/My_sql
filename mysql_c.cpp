@@ -1,20 +1,29 @@
 // mysql_c.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 //
-#include <mysql.h>
+
 #include <iostream>
+#include "Cliente.h"
 using namespace std;
-int main()
-{
-	MYSQL* conectar;
-	conectar = mysql_init(0);
-	conectar = mysql_real_connect(conectar, "localhost", "usr_empresa", "Empres@123", "db_empresa", 3306, NULL, 0);
-	if (conectar) {
-		cout << "Conexion Exitosa.." << endl;
-	}
-	else {
-		cout << "Error en la Concexion..." << endl;
-	}
-	cout << "Hello World!\n";
+int main() {
+
+	string nit, nombres, apellidos, direccion, fecha_nacimiento;
+	int telefono;
+	cout << "Ingrese NIT:";
+	getline(cin, nit);
+	cout << "Ingrese Nombres:";
+	getline(cin, nombres);
+	cout << "Ingrese Apellidos:";
+	getline(cin, apellidos);
+	cout << "Ingrese Direcccion:";
+	getline(cin, direccion);
+	cout << "Ingrese Telefono:";
+	cin >> telefono;
+	cin.ignore();
+	cout << "Ingrese Fecha Nacimiento;";
+	cin >> fecha_nacimiento;
+	Cliente c = Cliente(nombres, apellidos, direccion, telefono, fecha_nacimiento, nit);
+	c.crear();
+	c.leer();
   system("pause");
   return 0;
 }
