@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Cliente.h"
+#include "Proveedor.h"
 using namespace std;
 int main() {
 
